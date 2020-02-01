@@ -25,12 +25,6 @@ namespace VRTools {
         [SerializeField]
         private float throw_multiplier = 1f;
 
-        public Transform currentGrabObject
-        {
-            get { return _currentGrabObject; }
-            set { _currentGrabObject = value; }
-        }
-
         private Vector3 _lastFramePosition;
         private Transform _currentGrabObject;
         private bool _isGrabbing;
@@ -71,7 +65,7 @@ namespace VRTools {
                         _isGrabbing = true;
 
                         colliders[0].transform.SetParent(transform);
-
+                        
                         if (colliders[0].GetComponent<Rigidbody>() == null)
                         {
                             colliders[0].gameObject.AddComponent<Rigidbody>();
@@ -81,9 +75,10 @@ namespace VRTools {
 
                         _currentGrabObject = colliders[0].transform;
 
-                        if (OtherHandReference.currentGrabObject != null)
+                        if (OtherHandReference.getGrabbingObject() != null)
                         {
-                            OtherHandReference.currentGrabObject = null;
+                            OtherHandReference.setGrabbingObject(null);
+
                         }
 
                     }
@@ -110,15 +105,26 @@ namespace VRTools {
                     //release reference to object
                     _currentGrabObject = null;
 
-                    if (_isGrabbing)
-                    {
-                        _isGrabbing = false;
-                    }
                 }
+            }
+
+            if (closeness < 0.1 && _isGrabbing)
+            {
+                _isGrabbing = false;
             }
 
             _lastFramePosition = transform.position;
 
+        }
+
+        public void setGrabbingObject(Transform target)
+        {
+            _currentGrabObject = target;
+        }
+
+        public Transform getGrabbingObject()
+        {
+            return _currentGrabObject;
         }
     }
 }
