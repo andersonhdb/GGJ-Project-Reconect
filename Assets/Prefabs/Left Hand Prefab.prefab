@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handController: {fileID: 7769819822440430284}
   chosenRole: 2
+  OtherHandReference: {fileID: 0}
+  grabTag: Grab
+  grabDistance: 0.05
+  throw_multiplier: 1.5
 --- !u!1 &4017245727164069181
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,11 +61,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Hand Template V1
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: cff7ba85a84cc974abaeb402453fc8cd,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: bf376c3483754194dbaae73ded8eb337, type: 2}
     - target: {fileID: -4216859302048453862, guid: cff7ba85a84cc974abaeb402453fc8cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -132,6 +131,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: cff7ba85a84cc974abaeb402453fc8cd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bf376c3483754194dbaae73ded8eb337, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cff7ba85a84cc974abaeb402453fc8cd, type: 3}
 --- !u!1 &3675689289223234981 stripped
