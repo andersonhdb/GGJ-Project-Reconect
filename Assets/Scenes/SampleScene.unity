@@ -120,37 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &50128083
-        type: 3}
-      propertyPath: m_Name
-      value: DoorA
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 010ec431c706de643a0a6882ebb5eb84,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 010ec431c706de643a0a6882ebb5eb84,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      value: 1
-    - target: {fileID: -4216859302048453862, guid: 010ec431c706de643a0a6882ebb5eb84,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-    - target: {fileID: -4216859302048453862, guid: 010ec431c706de643a0a6882ebb5eb84,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-        type: 3}
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: 010ec431c706de643a0a6882ebb5eb84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-    - target: {fileID: 8940632808050562651, guid: 010ec431c706de643a0a6882ebb5eb84,
 --- !u!114 &190509341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 510655604, guid: 2bf3abee43409794db69c17a4f41744a,
