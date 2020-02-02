@@ -14,7 +14,7 @@ namespace VRTools {
         [SerializeField]
         InputDeviceRole chosenRole;
         [SerializeField]
-        Grabing OtherHandReference;
+        public Grabing OtherHandReference;
 
         private float closeness;
 
