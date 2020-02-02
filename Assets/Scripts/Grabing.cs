@@ -126,5 +126,10 @@ namespace VRTools {
         {
             return _currentGrabObject;
         }
+
+        public float getCloseness()
+        {
+            return closeness;
+        }
     }
 }

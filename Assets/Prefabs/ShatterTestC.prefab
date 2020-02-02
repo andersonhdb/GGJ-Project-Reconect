@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2443304471481297413}
   m_Layer: 0
   m_Name: ShatterTestC
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1707714869854394390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.3475184, y: 1.3269758, z: -5.027198}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 10.01, y: 10.01, z: 10.01}
   m_Children:
   - {fileID: 3465528004609819969}
   m_Father: {fileID: 0}
@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 3465528004609819969}
   - component: {fileID: 7695187335071282214}
   - component: {fileID: 2661062900357955980}
+  - component: {fileID: 7939822473278748348}
   m_Layer: 0
   m_Name: ShatterTestC
-  m_TagString: Untagged
+  m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +110,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7939822473278748348
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887949942537273965}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.004579056, y: 0.02411665, z: 0.052824304}
+  m_Center: {x: -1.1641532e-10, y: 0.00000001816079, z: 0.000000028871}
