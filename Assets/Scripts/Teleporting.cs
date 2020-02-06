@@ -39,11 +39,10 @@ public class Teleporting : MonoBehaviour
         if (buttonValue)
         {
             
-            int layerMask = 1 << 8;
+            int layerMask = LayerMask.GetMask("Floor");
             RaycastHit hit;
             if (Physics.Raycast(transform.position, -transform.forward, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log("There is a hit");
                 if (!target.GetComponent<MeshRenderer>().enabled)
                 {
                     target.GetComponent<MeshRenderer>().enabled = true;
@@ -55,7 +54,6 @@ public class Teleporting : MonoBehaviour
         {
             if (previousButtonValue)
             {
-                Debug.Log("The buttom is relesed");
                 player.position = target.transform.position;
                 target.GetComponent<MeshRenderer>().enabled = false;
             }

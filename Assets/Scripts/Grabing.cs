@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 
 namespace VRTools { 
     public class Grabing : MonoBehaviour
@@ -21,7 +22,7 @@ namespace VRTools {
         [SerializeField]
         private string grabTag = "Grab";
         [SerializeField]
-        private float grabDistance = 0.05f;
+        private float grabDistance = 0.1f;
         [SerializeField]
         private float throw_multiplier = 1f;
 
@@ -56,31 +57,38 @@ namespace VRTools {
                 Collider[] colliders = Physics.OverlapSphere(transform.position, grabDistance);
                 if (colliders.Length > 0)
                 {
-                    if(closeness>0 && colliders[0].transform.CompareTag(grabTag))
+                    foreach(Collider c in colliders)
                     {
-                        if (_isGrabbing)
+                        if (closeness > 0 && c.transform.CompareTag(grabTag))
                         {
-                            return;
+                            Debug.Log("Grabed object tag: " + c.gameObject.name);
+                            if (_isGrabbing)
+                            {
+                                return;
+                            }
+                            _isGrabbing = true;
+
+                            c.transform.SetParent(transform);
+
+                            if (c.GetComponent<Rigidbody>() == null)
+                            {
+                                c.gameObject.AddComponent<Rigidbody>();
+                            }
+
+                            c.GetComponent<Rigidbody>().isKinematic = true;
+
+                            _currentGrabObject = colliders[0].transform;
+
+                            if (OtherHandReference.getGrabbingObject() != null)
+                            {
+                                OtherHandReference.setGrabbingObject(null);
+                            }
+                            if (c.gameObject.name == "key")
+                            {
+                                
+                                SceneManager.LoadScene(2);
+                            }
                         }
-                        _isGrabbing = true;
-
-                        colliders[0].transform.SetParent(transform);
-                        
-                        if (colliders[0].GetComponent<Rigidbody>() == null)
-                        {
-                            colliders[0].gameObject.AddComponent<Rigidbody>();
-                        }
-
-                        colliders[0].GetComponent<Rigidbody>().isKinematic = true;
-
-                        _currentGrabObject = colliders[0].transform;
-
-                        if (OtherHandReference.getGrabbingObject() != null)
-                        {
-                            OtherHandReference.setGrabbingObject(null);
-
-                        }
-
                     }
                 }
 

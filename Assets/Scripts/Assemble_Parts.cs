@@ -8,12 +8,18 @@ public class Assemble_Parts : MonoBehaviour
     private Transform[] assemblePoints;
     [SerializeField]
     private Transform[] assembleObjects;
+    [SerializeField]
+    private GameObject prize;
+    
     private float SnappingDistance = 0.1f;
+
+    private int assembleCount;
+    private bool hasSpawnedPrize = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hasSpawnedPrize = false;
     }
 
     // Update is called once per frame
@@ -26,17 +32,24 @@ public class Assemble_Parts : MonoBehaviour
             {
                 foreach(Collider c in colliders)
                 {
-                    if (c.transform == assembleObjects[i])
+                    if (c.transform == assembleObjects[i] && c.gameObject.tag == "Grab")
                     {
+                        Debug.Log("This script is firing up and messing everything");
                         c.transform.tag = "Untagged";
                         c.transform.position = assemblePoints[i].position;
                         c.transform.rotation = assemblePoints[i].rotation;
+                        c.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                         c.transform.SetParent(null);
+                        assembleCount++;
                         break;
                     }
                 }
             }
         }
-        
+        if(assembleCount == assemblePoints.Length && !hasSpawnedPrize)
+        {
+            Instantiate(prize, transform.transform.position + new Vector3(0, 1, 0), prize.transform.rotation);
+            hasSpawnedPrize = true;
+        }
     }
 }
